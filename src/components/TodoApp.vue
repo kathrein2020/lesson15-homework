@@ -33,9 +33,16 @@
       <td >
          <!-- курсор  меняется на pointer в статусе, для восприятия что можно менять Статусы  -->
          <!-- changeStatus(index) меняет Статусы -->
-         <span @click="changeStatus(index)" class="pointer"> 
+         <!-- меняет цвета в зависимоти от статуса -->
+
+         <span @click="changeStatus(index)" class="pointer" 
+         :class="{'text-danger': task.status === 'Сделать то',
+                  'text-warning': task.status === 'В процессе', 
+                  'text-success': task.status === 'Закончено',
+                 }"> 
+         
           {{task.status}}
-          <!-- {{firstCharUpper(task.status)}} -->
+          
         </span>
 
       </td>
